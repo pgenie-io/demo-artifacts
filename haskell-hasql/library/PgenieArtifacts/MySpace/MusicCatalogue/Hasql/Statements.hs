@@ -88,7 +88,7 @@ insertAlbumFolding (Fold step init extract) =
       \returning id"
     encoder =
       mconcat 
-        [ Model.insertAlbumParamsName >$< Encoders.param (Encoders.nullable Encoders.text),
+        [ Model.insertAlbumParamsName >$< Encoders.param (Encoders.nonNullable Encoders.text),
           Model.insertAlbumParamsReleased >$< Encoders.param (Encoders.nullable Encoders.date)
         ]
     decoder =

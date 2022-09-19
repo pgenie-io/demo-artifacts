@@ -17,7 +17,7 @@ import qualified PgenieArtifacts.MySpace.MusicCatalogue.Hasql.Statements as Stat
 -- > returning id
 insertAlbum ::
   -- | @$name@ statement param.
-  Maybe Text ->
+  Text ->
   -- | @$released@ statement param.
   Maybe Day ->
   -- | How to fold the rows of the result.

@@ -43,7 +43,7 @@ newtype SelectAlbumByArtistParams = SelectAlbumByArtistParams
 --
 data InsertAlbumParams = InsertAlbumParams
   { -- | @$name@ parameter.
-    insertAlbumParamsName :: !(Maybe Text),
+    insertAlbumParamsName :: !Text,
     -- | @$released@ parameter.
     insertAlbumParamsReleased :: !(Maybe Day)
   }

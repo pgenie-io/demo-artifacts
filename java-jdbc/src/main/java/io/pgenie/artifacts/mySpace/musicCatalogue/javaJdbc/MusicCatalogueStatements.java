@@ -56,12 +56,8 @@ public final class MusicCatalogueStatements implements Closeable {
    * @param collector Specification of how to process result rows
    * @return Result of the collector
    */
-  public <acc, res> res insertAlbum(Optional<String> nameParam, Optional<Date> releasedParam, Collector<InsertAlbumResultRow, acc, res> collector) throws SQLException {
-    if (nameParam.isPresent()) {
-      insertAlbumStatement.setString(1, nameParam.get());
-    } else {
-      insertAlbumStatement.setNull(1, Types.VARCHAR);
-    }
+  public <acc, res> res insertAlbum(String nameParam, Optional<Date> releasedParam, Collector<InsertAlbumResultRow, acc, res> collector) throws SQLException {
+    insertAlbumStatement.setString(1, nameParam);
     if (releasedParam.isPresent()) {
       insertAlbumStatement.setDate(2, releasedParam.get());
     } else {
@@ -95,12 +91,8 @@ public final class MusicCatalogueStatements implements Closeable {
    * @param releasedParam Value for the "$released" placeholder in the query
    * @param consumer Consumer to be called on each row
    */
-  public void insertAlbum(Optional<String> nameParam, Optional<Date> releasedParam, Consumer<InsertAlbumResultRow> consumer) throws SQLException {
-    if (nameParam.isPresent()) {
-      insertAlbumStatement.setString(1, nameParam.get());
-    } else {
-      insertAlbumStatement.setNull(1, Types.VARCHAR);
-    }
+  public void insertAlbum(String nameParam, Optional<Date> releasedParam, Consumer<InsertAlbumResultRow> consumer) throws SQLException {
+    insertAlbumStatement.setString(1, nameParam);
     if (releasedParam.isPresent()) {
       insertAlbumStatement.setDate(2, releasedParam.get());
     } else {
@@ -129,12 +121,8 @@ public final class MusicCatalogueStatements implements Closeable {
    * @param releasedParam Value for the "$released" placeholder in the query
    * @return ArrayList of result row objects specialized to this statement
    */
-  public ArrayList<InsertAlbumResultRow> insertAlbum(Optional<String> nameParam, Optional<Date> releasedParam) throws SQLException {
-    if (nameParam.isPresent()) {
-      insertAlbumStatement.setString(1, nameParam.get());
-    } else {
-      insertAlbumStatement.setNull(1, Types.VARCHAR);
-    }
+  public ArrayList<InsertAlbumResultRow> insertAlbum(String nameParam, Optional<Date> releasedParam) throws SQLException {
+    insertAlbumStatement.setString(1, nameParam);
     if (releasedParam.isPresent()) {
       insertAlbumStatement.setDate(2, releasedParam.get());
     } else {
@@ -167,12 +155,8 @@ public final class MusicCatalogueStatements implements Closeable {
    * @param releasedParam Value for the "$released" placeholder in the query
    * @return The first result row if there are any
    */
-  public Optional<InsertAlbumResultRow> insertAlbumFirst(Optional<String> nameParam, Optional<Date> releasedParam) throws SQLException {
-    if (nameParam.isPresent()) {
-      insertAlbumStatement.setString(1, nameParam.get());
-    } else {
-      insertAlbumStatement.setNull(1, Types.VARCHAR);
-    }
+  public Optional<InsertAlbumResultRow> insertAlbumFirst(String nameParam, Optional<Date> releasedParam) throws SQLException {
+    insertAlbumStatement.setString(1, nameParam);
     if (releasedParam.isPresent()) {
       insertAlbumStatement.setDate(2, releasedParam.get());
     } else {
