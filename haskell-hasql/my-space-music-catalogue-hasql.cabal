@@ -1,27 +1,26 @@
 cabal-version: 3.0
 
-name: pgenie-artifacts-my-space-music-catalogue-hasql
-synopsis: Database integration layer based on "hasql"
+name: my-space-music-catalogue-hasql
 version: 0.1.0.0
-build-type: Simple
+
+synopsis: Database integration layer based on "hasql"
 
 library
   hs-source-dirs: library
   default-extensions: ApplicativeDo, BangPatterns, BinaryLiterals, BlockArguments, ConstraintKinds, DataKinds, DefaultSignatures, DeriveDataTypeable, DeriveFoldable, DeriveFunctor, DeriveGeneric, DeriveTraversable, DerivingVia, DuplicateRecordFields, EmptyDataDecls, FlexibleContexts, FlexibleInstances, FunctionalDependencies, GADTs, GeneralizedNewtypeDeriving, HexFloatLiterals, LambdaCase, LiberalTypeSynonyms, MultiParamTypeClasses, MultiWayIf, NoImplicitPrelude, NoMonomorphismRestriction, NumericUnderscores, OverloadedStrings, PatternGuards, PatternSynonyms, ParallelListComp, RankNTypes, RecordWildCards, ScopedTypeVariables, StandaloneDeriving, TupleSections, TypeApplications, TypeFamilies, TypeOperators, ViewPatterns
   default-language: Haskell2010
   exposed-modules:
-    PgenieArtifacts.MySpace.MusicCatalogue.Hasql.Model
-    PgenieArtifacts.MySpace.MusicCatalogue.Hasql.Sessions
-    PgenieArtifacts.MySpace.MusicCatalogue.Hasql.Statements
-  other-modules:
-    
+    MySpaceMusicCatalogueHasql.Model
+    MySpaceMusicCatalogueHasql.Sessions
+    MySpaceMusicCatalogueHasql.Statements
   build-depends:
     aeson ==2.*,
     base >=4.12 && <5,
     base-prelude >=1.6.1 && <1.7,
     bytestring >=0.10.4 && <0.12,
     containers >=0.5 && <0.7,
-    hasql >=1.6.0.1 && <1.7,
+    hashable >=1.4 && <1.5,
+    hasql >=1.6.2 && <1.7,
     hasql-transaction >=1.0.1.2 && <1.1,
     foldl >=1.4.12 && <1.5,
     network-ip ==0.3.*,
